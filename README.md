@@ -2,6 +2,7 @@
 # Smart Energy Meter using AWS
 
 The **Smart Energy Meter** is an advanced IoT-based solution designed to monitor and manage energy consumption in real-time, addressing the limitations of traditional energy meters. Built on AWS cloud services and leveraging MQTT for lightweight communication, this project provides detailed, appliance-specific data, remote control capabilities, and actionable insights to reduce energy waste and costs. It is scalable across households, offices, and factories, making it a versatile tool for energy efficiency.
+![Screenshot 2025-04-27 114019](https://github.com/user-attachments/assets/c619d1e4-6e7e-43fd-9165-d8e0628c1235)
 
 ---
 
@@ -26,6 +27,14 @@ This project integrates IoT devices, AWS cloud services, and a user-friendly fro
 - **IoT Integration**: Uses MQTT for real-time device communication with AWS IoT Core.
 - **Scalability**: Suitable for small households to large factories.
 - **Cost Analysis**: Demonstrates significant ROI through energy savings.
+
+![Screenshot 2025-04-27 114111](https://github.com/user-attachments/assets/bb91431f-3032-41f1-8b36-2ad20f26ffd5)
+![Screenshot 2025-04-27 114155](https://github.com/user-attachments/assets/a6210d30-cb91-4771-bb5f-5260ae726557)
+![Screenshot 2025-04-27 114226](https://github.com/user-attachments/assets/667138af-d16e-41f1-8568-2b7d50613729)
+![Screenshot 2025-04-27 114249](https://github.com/user-attachments/assets/fc2608f1-72ed-43a1-a799-53ae1277587c)
+![Screenshot 2025-04-27 114314](https://github.com/user-attachments/assets/0057702e-3a44-4227-9098-fced292f1e8f)
+![Screenshot 2025-04-27 114417](https://github.com/user-attachments/assets/095949f9-e17c-4d02-b67a-95155de1848c)
+![Screenshot 2025-04-27 114035](https://github.com/user-attachments/assets/57f12723-75b4-4bcf-90d3-35a751a06e82)
 
 ---
 
