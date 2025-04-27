@@ -214,5 +214,5 @@ You can find the presentation files in the repo.
 ## Acknowledgments
 
 - Built as an extension of a simple CRUD application.
-- Thanks to AWS for providing scalable, serverless tools and to Chart.js for visualization.
+- Thanks to AWS for providing scalable, serverless tools.
 
