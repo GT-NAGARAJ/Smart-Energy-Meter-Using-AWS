@@ -198,9 +198,8 @@ Contributions are welcome! To contribute:
 2. Create a feature branch.
 3. Submit a pull request with clear descriptions and tests.
 
-## I also Gave a presentation on this. 
-
-You can find the presentation files as well in the repo.
+## Delivered a comprehensive presentation on this Project, highlighting key insights and takeaways.
+You can find the presentation files in the repo.
 
 ![unnamed (1)](https://github.com/user-attachments/assets/9c23f807-11f3-4152-bacf-77f6383f84fc)
 
