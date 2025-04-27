@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Appliance</title>
+    <style>
+        /* Basic styling for page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        /* Button styling */
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Form styling */
+        #applianceForm {
+            display: none; /* Initially hide the form */
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            width: 300px;
+        }
+
+        .form-field {
+            margin-bottom: 15px;
+        }
+
+        .form-field label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .form-field input,
+        .form-field select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+        }
+
+        /* Submit button styling */
+        #applianceForm button[type="submit"] {
+            width: 100%;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #applianceForm button[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        /* Error and success message styling */
+        #message {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #message.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        #message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+    <script>
+        // Function to display the form when the button is clicked
+        function showForm() {
+            document.getElementById('applianceForm').style.display = 'block';
+        }
+
+        // Function to show form fields based on the selected appliance type
+        function displayFields() {
+            var selectedType = document.getElementById('applianceType').value;
+            var forms = document.querySelectorAll('.appliance-specific');
+
+            // Hide all forms
+            forms.forEach(function (form) {
+                form.style.display = 'none';
+            });
+
+            // Show the form corresponding to the selected appliance type
+            if (selectedType) {
+                document.getElementById(selectedType + 'Form').style.display = 'block';
+            }
+        }
+
+        // Function to handle form submission
+        function submitForm(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            var applianceType = document.getElementById('applianceType').value;
+            if (!applianceType) {
+                showMessage("Please select an appliance type.", "error");
+                return;
+            }
+
+            // Check if required fields are filled
+            var requiredFields = document.querySelectorAll('#' + applianceType + 'Form [required]');
+            var allFilled = true;
+            requiredFields.forEach(function (field) {
+                if (!field.value) {
+                    allFilled = false;
+                }
+            });
+
+            if (!allFilled) {
+                showMessage("Please fill all required fields.", "error");
+                return;
+            }
+
+            // Convert FormData to a plain object
+            function formDataToObject(formData) {
+                let obj = {};
+                formData.forEach((value, key) => {
+                    obj[key] = value;
+                });
+                return obj;
+            }
+
+            // Get form data based on the selected appliance type
+            var formData = new FormData();
+            var applianceName = document.getElementById('applianceName').value;
+            formData.append('applianceName', applianceName); // Add appliance name
+            formData.append('applianceType', applianceType); // Add appliance type
+
+            var fields = document.querySelectorAll('#' + applianceType + 'Form input, #' + applianceType + 'Form select');
+
+            fields.forEach(function (field) {
+                if (field.name) {
+                    formData.append(field.name, field.value);
+                }
+            });
+
+            // Convert FormData to plain object and then to JSON
+            var formDataObject = formDataToObject(formData);
+
+            // Send POST request
+            fetch('https://rpwb36i74i.execute-api.us-east-1.amazonaws.com/Prod/CreateAppliance', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formDataObject)
+            }).then(function (response) {
+                return response.json();
+            }).then(function (data) {
+                showMessage("Appliance added successfully!", "success");
+            }).catch(function (error) {
+                console.error('Error:', error);
+                showMessage("An error occurred. Please try again.", "error");
+            });
+        }
+
+        // Function to show a message to the user
+        function showMessage(message, type) {
+            var messageElement = document.getElementById('message');
+            messageElement.textContent = message;
+            messageElement.className = 'success'; // Default to success
+            if (type === 'error') {
+                messageElement.className = 'error';
+            }
+            messageElement.style.display = 'block';
+            setTimeout(function() {
+                messageElement.style.display = 'none';
+            }, 5000);
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h1>Manage Appliances</h1>
+
+        <!-- Button to show the form -->
+        <button onclick="showForm()">Add Appliance</button>
+
+        <!-- Form to add a new appliance -->
+        <div id="applianceForm">
+            <h2>Add Appliance</h2>
+            <div class="form-field">
+                <label for="applianceName">Appliance Name:</label>
+                <input type="text" id="applianceName" name="applianceName" required>
+            </div>
+            <div class="form-field">
+                <label for="applianceType">Type:</label>
+                <select id="applianceType" name="applianceType" onchange="displayFields()" required>
+                    <option value="">Select Type</option>
+                    <option value="Light">Light</option>
+                    <option value="Fan">Fan</option>
+                    <option value="AC">AC</option>
+                    <option value="TV">TV</option>
+                    <option value="WM">WM</option>
+                    <option value="Car">Car</option>
+                </select>
+            </div>
+
+            <!-- Light Form -->
+            <div id="LightForm" class="appliance-specific" style="display:none;">
+                <!-- Light-specific fields -->
+                <div class="form-field"><label>Status:</label><input type="text" name="Status" required></div>
+                <div class="form-field"><label>Appliance ID:</label><input type="text" name="Appliance_Id" required></div>
+                <div class="form-field"><label>Power Rating:</label><input type="number" name="Power_Rating" required></div>
+                <div class="form-field"><label>Current Power Consumption:</label><input type="number" name="Current_Power_Consumption" required></div>
+                <div class="form-field"><label>Total Power Consumption:</label><input type="number" name="Total_Power_Consumption" required></div>
+                <div class="form-field"><label>Today Limit:</label><input type="number" name="Today_Limit" required></div>
+                <div class="form-field"><label>Timer Period:</label><input type="text" name="Timer_period"></div>
+                <div class="form-field"><label>Timer Status:</label><input type="text" name="Timer_Status"></div>
+                <div class="form-field"><label>Brightness:</label><input type="text" name="Brightness"></div>
+                <div class="form-field"><label>Color:</label><input type="text" name="Color"></div>
+                <div class="form-field"><label>Sleep Timer:</label><input type="text" name="sleep_timer"></div>
+            </div>
+
+            <!-- Fan Form -->
+            <div id="FanForm" class="appliance-specific" style="display:none;">
+                <!-- Fan-specific fields -->
+                <div class="form-field"><label>Status:</label><input type="text" name="Status" required></div>
+                <div class="form-field"><label>Appliance ID:</label><input type="text" name="Appliance_Id" required></div>
+                <div class="form-field"><label>Power Rating:</label><input type="number" name="Power_Rating" required></div>
+                <div class="form-field"><label>Current Power Consumption:</label><input type="number" name="Current_Power_Consumption" required></div>
+                <div class="form-field"><label>Total Power Consumption:</label><input type="number" name="Total_Power_Consumption" required></div>
+                <div class="form-field"><label>Today Limit:</label><input type="number" name="Today_Limit" required></div>
+                <div class="form-field"><label>Timer Period:</label><input type="text" name="Timer_period"></div>
+                <div class="form-field"><label>Timer Status:</label><input type="text" name="Timer_Status"></div>
+                <div class="form-field"><label>Speed:</label><input type="text" name="Speed"></div>
+                <div class="form-field"><label>Direction:</label><input type="text" name="Direction"></div>
+                <div class="form-field"><label>Sleep Timer:</label><input type="text" name="sleep_timer"></div>
+            </div>
+
+            <!-- AC Form -->
+            <div id="ACForm" class="appliance-specific" style="display:none;">
+                <!-- AC-specific fields -->
+                <div class="form-field"><label>Status:</label><input type="text" name="Status" required></div>
+                <div class="form-field"><label>Appliance ID:</label><input type="text" name="Appliance_Id" required></div>
+                <div class="form-field"><label>Power Rating:</label><input type="number" name="Power_Rating" required></div>
+                <div class="form-field"><label>Current Power Consumption:</label><input type="number" name="Current_Power_Consumption" required></div>
+                <div class="form-field"><label>Total Power Consumption:</label><input type="number" name="Total_Power_Consumption" required></div>
+                <div class="form-field"><label>Today Limit:</label><input type="number" name="Today_Limit" required></div>
+                <div class="form-field"><label>Timer Period:</label><input type="text" name="Timer_period"></div>
+                <div class="form-field"><label>Timer Status:</label><input type="text" name="Timer_Status"></div>
+                <div class="form-field"><label>Mode:</label>
+                    <select name="Mode">
+                        <option value="Cool">Cool</option>
+                        <option value="Fan">Fan</option>
+                        <option value="Hot">Hot</option>
+                    </select>
+                </div>
+                <div class="form-field"><label>Temperature:</label><input type="number" name="Temperature"></div>
+                <div class="form-field"><label>Sleep Timer:</label><input type="text" name="sleep_timer"></div>
+            </div>
+
+            <!-- TV Form -->
+            <div id="TVForm" class="appliance-specific" style="display:none;">
+                <!-- TV-specific fields -->
+                <div class="form-field"><label>Status:</label><input type="text" name="Status" required></div>
+                <div class="form-field"><label>Appliance ID:</label><input type="text" name="Appliance_Id" required></div>
+                <div class="form-field"><label>Power Rating:</label><input type="number" name="Power_Rating" required></div>
+                <div class="form-field"><label>Current Power Consumption:</label><input type="number" name="Current_Power_Consumption" required></div>
+                <div class="form-field"><label>Total Power Consumption:</label><input type="number" name="Total_Power_Consumption" required></div>
+                <div class="form-field"><label>Today Limit:</label><input type="number" name="Today_Limit" required></div>
+                <div class="form-field"><label>Timer Period:</label><input type="text" name="Timer_period"></div>
+                <div class="form-field"><label>Timer Status:</label><input type="text" name="Timer_Status"></div>
+                <div class="form-field"><label>Current Channel No:</label><input type="text" name="Current_Channel_No"></div>
+                <div class="form-field"><label>Current Volume:</label><input type="text" name="Current_Volume"></div>
+                <div class="form-field"><label>Sleep Timer:</label><input type="text" name="sleep_timer"></div>
+            </div>
+
+
+
+            <!-- WashingMachineForm -->
+            <div id="WMForm" class="appliance-specific" style="display:none;">
+                <!-- TV-specific fields -->
+                <div class="form-field"><label>Status:</label><input type="text" name="Status" required></div>
+                <div class="form-field"><label>Appliance ID:</label><input type="text" name="Appliance_Id" required></div>
+                <div class="form-field"><label>Power Rating:</label><input type="number" name="Power_Rating" required></div>
+                <div class="form-field"><label>Current Power Consumption:</label><input type="number" name="Current_Power_Consumption" required></div>
+                <div class="form-field"><label>Total Power Consumption:</label><input type="number" name="Total_Power_Consumption" required></div>
+                <div class="form-field"><label>Today Limit:</label><input type="number" name="Today_Limit" required></div>
+                <div class="form-field"><label>Timer Period:</label><input type="text" name="Timer_period"></div>
+                <div class="form-field"><label>Timer Status:</label><input type="text" name="Timer_Status"></div>
+                <div class="form-field"><label>Water Level:</label><input type="text" name="WaterLevel"></div>
+                <div class="form-field"><label>RemaningTime:</label><input type="text" name="RemaningTime"></div>
+                <div class="form-field"><label>Mode:</label><input type="text" name="Mode"></div>
+            </div>
+
+
+            <!-- Electric Car Form -->
+            <div id="CarForm" class="appliance-specific" style="display:none;">
+                <!-- TV-specific fields -->
+                <div class="form-field"><label>Status:</label><input type="text" name="Status" required></div>
+                <div class="form-field"><label>Appliance ID:</label><input type="text" name="Appliance_Id" required></div>
+                <div class="form-field"><label>Power Rating:</label><input type="number" name="Power_Rating" required></div>
+                <div class="form-field"><label>Current Power Consumption:</label><input type="number" name="Current_Power_Consumption" required></div>
+                <div class="form-field"><label>Total Power Consumption:</label><input type="number" name="Total_Power_Consumption" required></div>
+                <div class="form-field"><label>Today Limit:</label><input type="number" name="Today_Limit" required></div>
+                <div class="form-field"><label>Charge Capacity:</label><input type="text" name="ChargeCapacity"></div>
+                <div class="form-field"><label>Timer Status:</label><input type="text" name="Timer_Status"></div>
+                <div class="form-field"><label>Total Travelled Time:</label><input type="text" name="TotalTravelledTime"></div>
+                <div class="form-field"><label>ChargingTime:</label><input type="text" name="ChargingTime"></div>
+                <div class="form-field"><label>FuelLevel</label><input type="text" name="FuelLevel"></div>
+            </div>
+
+            <!-- Success and Error Messages -->
+            <div id="message"></div>
+
+            <!-- Submit Button -->
+            <button type="submit" onclick="submitForm(event)">Submit</button>
+        </div>
+    </div>
+</body>
+</html>

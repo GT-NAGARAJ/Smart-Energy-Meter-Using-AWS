@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appliance Control Panel</title>
+    <link rel="stylesheet" href="ViewAppliance.css">
+</head>
+<body>
+
+<div id="header">
+    <h1>Turn on meter reading</h1>
+    <!-- <button onclick="triggerStatusAPI()">Turn On Step Function Manually</button> -->
+    <button >Turn On Step Function Manually</button>
+    <button onclick="hideHeader()">No Thanks</button>
+</div>
+
+    
+
+<div class="appliance-container">
+
+    <!-- Light Bulb Block -->
+    <div class="appliance-box">
+        <h3>Light Bulb</h3>
+        <div class="control-panel">
+            <label for="appliance-name">Appliance Name:</label>
+            <p>Living Room Light</p>
+        </div>
+        <div class="light-bulb"></div>
+        <div class="light-bulb-base"></div>
+        <div class="control-panel">
+            <label for="light-switch">Switch:</label>
+            <button id="switch-on-light" onclick="toggleLightBulb('on'); startTimer('light'); changeApplianceStatus('Living_Room_Light', 'On')">Switch On</button>
+            <button id="switch-off-light" onclick="toggleLightBulb('off'); stopTimer('light'); changeApplianceStatus('Living_Room_Light', 'Off',getElapsedTime('light'))">Switch Off</button>
+        </div>
+        <div class="control-panel">
+            <label>Total Time:</label>
+            <p id="total-time-light">0 sec</p>
+        </div>
+        <div class="control-panel">
+            <button onclick="viewAllDetails('Living_Room_Light')">View All</button>
+        </div>
+        <div class="appliance-id">ID: LB12345</div>
+    </div>
+
+    <!-- Fan Block -->
+    <div class="appliance-box">
+        <h3>Fan</h3>
+
+        <!-- Appliance Name -->
+        <div class="control-panel">
+            <label for="appliance-name">Appliance Name:</label>
+            <p>Living Room Fan</p>
+        </div>
+        
+        <!-- Fan Shape -->
+        <div class="fan-shape" id="fan">
+            <div class="fan-blades">
+                <div class="fan-blade"></div>
+                <div class="fan-blade"></div>
+                <div class="fan-blade"></div>
+                <div class="fan-blade"></div>
+            </div>
+        </div>
+
+        <!-- Switch ON/OFF -->
+        <div class="control-panel">
+            <label for="fan-switch">Switch:</label>
+            <button id="switch-on" onclick="toggleFan('on'); startTimer('fan'); changeApplianceStatus('Living_Room_Fan', 'On')">Switch On</button>
+            <button id="switch-off" onclick="toggleFan('off'); stopTimer('fan'); changeApplianceStatus('Living_Room_Fan', 'Off',getElapsedTime('fan'))">Switch Off</button>
+        </div>
+
+        <div class="control-panel">
+            <label>Total Time:</label>
+            <p id="total-time-fan">0 sec</p>
+        </div>
+
+        <!-- View All Button -->
+        <div class="control-panel">
+            <button onclick="viewAllDetails('Living_Room_Fan')">View All</button>
+        </div>
+
+        <!-- Appliance ID (hidden/small font) -->
+        <div class="appliance-id">ID: F12345</div>
+    </div>
+
+
+    <!-- AC Block -->
+    <div class="appliance-box">
+        <h3>Air Conditioner (AC)</h3>
+        <div class="control-panel">
+            <label for="appliance-name">Appliance Name:</label>
+            <p>Living Room AC</p>
+        </div>
+        <div class="ac-shape" id="ac">
+            <div class="ac-front">
+                <div class="ac-vent"></div>
+                <div class="ac-vent"></div>
+                <div class="ac-vent"></div>
+                <div class="ac-display"></div>
+            </div>
+        </div>
+        <div class="control-panel">
+            <label for="ac-switch">Switch:</label>
+            <button id="switch-on" onclick="toggleAC('on'); startTimer('ac'); changeApplianceStatus('Living_Room_AC', 'On')">Switch On</button>
+            <button id="switch-off" onclick="toggleAC('off'); stopTimer('ac'); changeApplianceStatus('Living_Room_AC', 'Off',getElapsedTime('ac'))">Switch Off</button>
+        </div>
+
+        <div class="control-panel">
+            <label>Total Time:</label>
+            <p id="total-time-ac">0 sec</p>
+        </div>
+        <div class="control-panel">
+            <button onclick="viewAllDetails('Living_Room_AC')">View All</button>
+        </div>
+        <div class="appliance-id">ID: AC12345</div>
+    </div>
+
+    <!-- TV Block -->
+    <div class="appliance-box">
+        <h3>Television (TV)</h3>
+
+        <!-- Appliance Name -->
+        <div class="control-panel">
+            <label for="appliance-name">Appliance Name:</label>
+            <p>Living Room TV</p>
+        </div>
+        
+        <!-- TV Shape -->
+        <div class="tv-shape" id="tv">
+            <div class="tv-screen"></div>
+            <div class="tv-stand"></div>
+        </div>
+
+        <!-- Switch ON/OFF -->
+        <div class="tv-controls">
+            <button id="switch-on" onclick="toggleTV('on'); startTimer('tv'); changeApplianceStatus('Living_Room_TV', 'On')">Switch On</button>
+            <button id="switch-off" onclick="toggleTV('off'); stopTimer('tv'); changeApplianceStatus('Living_Room_TV', 'Off',getElapsedTime('tv'))">Switch Off</button>
+        </div>
+
+        <div class="control-panel">
+            <label>Total Time:</label>
+            <p id="total-time-tv">0 sec</p>
+        </div>
+
+        <!-- View All Button -->
+        <div class="control-panel">
+            <button onclick="viewAllDetails('Living_Room_TV')">View All</button>
+        </div>
+
+        <!-- Appliance ID (hidden/small font) -->
+        <div class="appliance-id">ID: TV12345</div>
+    </div>
+
+    <!-- Washing Machine Block -->
+    <div class="appliance-box">
+        <h3>Washing Machine</h3>
+
+        <!-- Appliance Name -->
+        <div class="control-panel">
+            <label for="appliance-name">Appliance Name:</label>
+            <p>Laundry Room Washer</p>
+        </div>
+        
+        <!-- Washing Machine Shape -->
+        <div class="wm-shape" id="wm">
+            <div class="wm-front">
+                <div class="wm-screen"></div>
+                <div class="wm-drum"></div>
+            </div>
+        </div>
+
+        <!-- Switch ON/OFF -->
+        <div class="wm-controls">
+            <button id="switch-on" onclick="toggleWM('on'); startTimer('wm'); changeApplianceStatus('Laundry_Room_Washer', 'On')">Switch On</button>
+            <button id="switch-off" onclick="toggleWM('off'); stopTimer('wm'); changeApplianceStatus('Laundry_Room_Washer', 'Off',getElapsedTime('wm'))">Switch Off</button>
+        </div>
+
+        <div class="control-panel">
+            <label>Total Time:</label>
+            <p id="total-time-wm">0 sec</p>
+        </div>
+
+        <!-- View All Button -->
+        <div class="control-panel">
+            <button onclick="viewAllDetails('Laundry_Room_Washer')">View All</button>
+        </div>
+
+        <!-- Appliance ID (hidden/small font) -->
+        <div class="appliance-id">ID: WM12345</div>
+    </div>
+
+    <!-- Electric Car Block -->
+    <div class="appliance-box">
+        <h3>Electric Car</h3>
+
+        <!-- Appliance Name -->
+        <div class="control-panel">
+            <label for="appliance-name">Appliance Name:</label>
+            <p>Electric Sedan</p>
+        </div>
+        
+        <!-- Electric Car Shape -->
+        <div class="car-shape" id="car">
+            <div class="car-body">
+                <div class="car-lights" id="car-lights"></div>
+            </div>
+            <div class="car-wheels">
+                <div class="car-wheel"></div>
+                <div class="car-wheel"></div>
+            </div>
+        </div>
+
+        <!-- Switch ON/OFF -->
+        <div class="control-panel">
+            <label for="car-switch">Switch:</label>
+            <button id="switch-on" onclick="toggleCar('on'); startTimer('car'); changeApplianceStatus('Electric_Sedan', 'On')">Switch On</button>
+            <button id="switch-off" onclick="toggleCar('off'); stopTimer('car'); changeApplianceStatus('Electric_Sedan', 'Off',getElapsedTime('car'))">Switch Off</button>
+        </div>
+
+        <div class="control-panel">
+            <label>Total Time:</label>
+            <p id="total-time-car">0 sec</p>
+        </div>
+
+        <!-- View All Button -->
+        <div class="control-panel">
+            <button onclick="viewAllDetails('Electric_Sedan')">View All</button>
+        </div>
+
+        <!-- Appliance ID (hidden/small font) -->
+        <div class="appliance-id">ID: CAR12345</div>
+    </div>
+
+
+    <!-- Popup structure -->
+    <div id="appliancePopup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <span class="close-button" onclick="closePopup()">&times;</span>
+            <h2>Appliance Details</h2>
+            <p id="applianceDetails"></p>
+        </div>
+    </div>
+
+
+                            
+
+
+
+    
+</div>
+
+<script src="ViewAppliance.js"></script>
+
+</body>
+</html>
+

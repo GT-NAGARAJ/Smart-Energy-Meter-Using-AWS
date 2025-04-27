@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote Controller</title>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="RemoteController.css">
+</head>
+<body>
+    <h1>Remote Controller</h1>
+    
+    <!-- Dropdown to select appliance -->
+    <label for="appliance-select">Select an appliance to control:</label>
+    <select id="appliance-select" onchange="showRemote()">
+        <option value="">--Select an appliance--</option>
+        <option value="light">Light</option>
+        <option value="fan">Fan</option>
+        <option value="tv">TV</option>
+        <option value="ac">Air Conditioner</option>
+        <option value="washingMachine">Washing Machine</option>
+        <option value="electricCar">Electric Car</option>
+    </select>
+
+    <!-- Remote Controls -->
+    <div id="remote-controls" style="display: none;">
+        <div id="light-remote" class="remote">
+            <h2>Light Remote</h2>
+            <button class="button" onclick="controlAppliance('Light', 'Turn On')">Turn On</button>
+            <button class="button" onclick="controlAppliance('Light', 'Turn Off')">Turn Off</button><br>
+            <input type="range" class="slider" min="0" max="100" value="50" onchange="controlAppliance('Light', 'Brightness')"><br>
+            <input type="color" class="button" onchange="controlAppliance('Light', 'Color')"><br>
+            <input type="text" placeholder="Today's Limit" class="input">
+            <button class="button" onclick="controlAppliance('Light', 'Set Today Limit')">Submit</button><br>
+            <input type="text" placeholder="Sleep Timer" class="input">
+            <button class="button" onclick="controlAppliance('Light', 'Set Sleep Timer')">Submit</button><br>
+            <input type="text" placeholder="Start Time" class="input">
+            <button class="button" onclick="controlAppliance('Light', 'Set Start Time')">Submit</button>
+        </div>
+
+        <div id="fan-remote" class="remote">
+            <h2>Fan Remote</h2>
+            <button class="button" onclick="controlAppliance('Fan', 'Turn On')">Turn On</button>
+            <button class="button" onclick="controlAppliance('Fan', 'Turn Off')">Turn Off</button><br>
+            <button class="button" onclick="controlAppliance('Fan', 'Speed Up')">Speed Up</button>
+            <button class="button" onclick="controlAppliance('Fan', 'Speed Down')">Speed Down</button><br>
+            <button class="button" onclick="controlAppliance('Fan', 'Change Direction')">Direction</button><br>
+            <input type="text" placeholder="Today's Limit" class="input">
+            <button class="button" onclick="controlAppliance('Fan', 'Set Today Limit')">Submit</button><br>
+            <input type="text" placeholder="Sleep Timer" class="input">
+            <button class="button" onclick="controlAppliance('Fan', 'Set Sleep Timer')">Submit</button><br>
+            <input type="text" placeholder="Start Time" class="input">
+            <button class="button" onclick="controlAppliance('Fan', 'Set Start Time')">Submit</button>
+        </div>
+
+        <div id="tv-remote" class="remote">
+            <h2>TV Remote</h2>
+            <button class="button" onclick="controlAppliance('TV', 'Turn On')">Turn On</button>
+            <button class="button" onclick="controlAppliance('TV', 'Turn Off')">Turn Off</button><br>
+            <button class="button" onclick="controlAppliance('TV', 'Channel Up')">Ch +</button>
+            <button class="button" onclick="controlAppliance('TV', 'Channel Down')">Ch -</button><br>
+            <button class="button" onclick="controlAppliance('TV', 'Volume Up')">Vol +</button>
+            <button class="button" onclick="controlAppliance('TV', 'Volume Down')">Vol -</button><br>
+            <input type="text" placeholder="Today's Limit" class="input">
+            <button class="button" onclick="controlAppliance('TV', 'Set Today Limit')">Submit</button><br>
+            <input type="text" placeholder="Sleep Timer" class="input">
+            <button class="button" onclick="controlAppliance('TV', 'Set Sleep Timer')">Submit</button><br>
+            <input type="text" placeholder="Start Time" class="input">
+            <button class="button" onclick="controlAppliance('TV', 'Set Start Time')">Submit</button>
+        </div>
+    </div>
+
+    <!-- Link to the JavaScript file -->
+    <script src="RemoteController.js"></script>
+</body>
+</html>

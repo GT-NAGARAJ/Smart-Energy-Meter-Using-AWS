@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric Energy Meter</title>
+    <link rel="stylesheet" href="ViewEnergyMeter.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Electric Energy Meter</h1>
+        <div class="meter">
+            <div class="meter-screen" id="meterScreen">0.00 kWh</div>
+            <div class="dial-needle"></div>
+            <div class="indicator-lights"></div>
+            <div class="indicator-lights"></div>
+            <div class="wires"></div>
+            <div class="wires"></div>
+            <div class="wires"></div>
+            <div class="wires"></div>
+        </div>
+        <div class="button-container">
+            <button onclick="fetchData()">Fetch Data</button>
+            <button onclick="showAddBalanceForm()">Add Balance</button>
+        </div>
+        <div class="balance-display" id="availableBalance">Balance: ₹50000.00</div>
+        <div id="addBalanceForm" style="display: none;">
+            <input type="number" id="amountToAdd" placeholder="Enter amount to add" />
+            <button onclick="submitAddBalance()">Add Balance</button>
+        </div>
+        <div id="updatedBalance"></div>
+    </div>
+
+    <!-- Popup for Available Balance -->
+    <div id="balancePopup" class="popup">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <h2>Available Balance</h2>
+        <p id="balancePopupContent">Loading...</p>
+    </div>
+
+    <script src="ViewEnergyMeter.js"></script>
+</body>
+</html>
