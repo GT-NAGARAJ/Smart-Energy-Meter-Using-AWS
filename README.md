@@ -14,26 +14,41 @@
 # Smart Energy Meter using AWS
 
 The **Smart Energy Meter** is an advanced IoT-based solution designed to monitor and manage energy consumption in real-time, addressing the limitations of traditional energy meters. Built on AWS cloud services and leveraging MQTT for lightweight communication, this project provides detailed, appliance-specific data, remote control capabilities, and actionable insights to reduce energy waste and costs. It is scalable across households, offices, and factories, making it a versatile tool for energy efficiency.
-![Screenshot 2025-04-27 114019](https://github.com/user-attachments/assets/c619d1e4-6e7e-43fd-9165-d8e0628c1235)
+
+![Screenshot 2025-04-27 120646](https://github.com/user-attachments/assets/908533ba-ab5b-4c42-b1b1-962cc4ba1300)
+
+![Screenshot 2025-04-27 114019](https://github.com/user-attachments/assets/a4f5c499-b6c2-40b8-812f-a7388699a387)
+
+![Screenshot 2025-04-27 114226](https://github.com/user-attachments/assets/21cdcf8e-c219-403f-a0db-0af481760444)
+
+![Screenshot 2025-04-27 114155](https://github.com/user-attachments/assets/69902fac-4c82-4177-aaac-155ce3f04f8d)
+
+![Screenshot 2025-04-27 120313](https://github.com/user-attachments/assets/bcafaf66-0ee3-47f0-b966-a708c7bf17f6)
+
+![Screenshot 2025-04-27 115943](https://github.com/user-attachments/assets/6e37b5c7-b5ef-4802-81a0-1afc820ddb9b)
+
+![Screenshot 2025-04-27 120003](https://github.com/user-attachments/assets/b93a8fa8-6895-4845-aa06-6af83caf331c)
+
+![Screenshot 2025-04-27 120028](https://github.com/user-attachments/assets/b5462718-e47a-471e-b6bf-5d306b7344e3)
+
+![Screenshot 2025-04-27 120046](https://github.com/user-attachments/assets/c4d6e333-45f4-48e3-bd24-0932e807d27e)
+
+![Screenshot 2025-04-27 120106](https://github.com/user-attachments/assets/57634d11-ac8c-43ce-b036-eba7df028c9e)
+
+![Screenshot 2025-04-27 120121](https://github.com/user-attachments/assets/6caebaa4-a448-4cc7-9b97-13a519f16d23)
+
+![Screenshot 2025-04-27 120136](https://github.com/user-attachments/assets/edbaa39d-4438-4ea4-b53e-bb4c62c1472e)
+
+![Screenshot 2025-04-27 120153](https://github.com/user-attachments/assets/cfbc077f-c140-4b28-aaf1-ae4489cf7fb2)
+
+![Screenshot 2025-04-27 120230](https://github.com/user-attachments/assets/be8a9d0f-4919-4b57-978a-60a3f397f10c)
+
+![Screenshot 2025-04-27 120313](https://github.com/user-attachments/assets/80c42468-7fc6-4284-9261-3e8d4d4a4a02)
+
+![Screenshot 2025-04-27 115924](https://github.com/user-attachments/assets/79316bb9-a4fa-4ab1-8b21-a05be5429d11)
+
 
 ---
-
-![Screenshot 2025-04-27 115924](https://github.com/user-attachments/assets/605cfd84-5d46-40bf-86ea-8b9f8eb53336)
-![Screenshot 2025-04-27 115943](https://github.com/user-attachments/assets/0ced7901-8991-4633-a3ae-25a117ce72f9)
-![Screenshot 2025-04-27 120003](https://github.com/user-attachments/assets/36a85edf-966a-44c7-8e1c-78a3bb95df89)
-![Screenshot 2025-04-27 120028](https://github.com/user-attachments/assets/6c0d3c4f-47ad-43d2-8025-9a792fc50449)
-![Screenshot 2025-04-27 120046](https://github.com/user-attachments/assets/326e1d82-6b14-4e12-9ff5-ddb3340cbd52)
-![Screenshot 2025-04-27 120106](https://github.com/user-attachments/assets/570a0b8e-6b08-4568-b9dd-5fd36fd578d1)
-![Screenshot 2025-04-27 120121](https://github.com/user-attachments/assets/dc7fde75-9ec0-48ae-ae4f-7f150321e4be)
-![Screenshot 2025-04-27 120136](https://github.com/user-attachments/assets/a2061c7f-1210-4248-baf1-f359c03cdd30)
-![Screenshot 2025-04-27 120153](https://github.com/user-attachments/assets/6f3bd9ad-b687-4f40-8e31-59c039fbabbf)
-![Screenshot 2025-04-27 120230](https://github.com/user-attachments/assets/3135e0e8-6fc0-4f80-a04e-52e3209ef59b)
-![Screenshot 2025-04-27 120313](https://github.com/user-attachments/assets/bb9ee022-a202-4d2f-8b0f-39010b7e1179)
-![Screenshot 2025-04-27 120451](https://github.com/user-attachments/assets/1c99a3c5-cf26-48f2-abd1-874822de4928)
-![Screenshot 2025-04-27 120553](https://github.com/user-attachments/assets/8ed2841b-041d-4c80-b18d-09a82d217a0e)
-![Screenshot 2025-04-27 120646](https://github.com/user-attachments/assets/a90454f4-0488-48b5-97e4-1afe1cb56f0c)
-![Screenshot 2025-04-27 115902](https://github.com/user-attachments/assets/56522d6f-df2c-41d3-8d12-74c00078b07c)
-
 
 ## Project Overview
 
@@ -57,13 +72,6 @@ This project integrates IoT devices, AWS cloud services, and a user-friendly fro
 - **Scalability**: Suitable for small households to large factories.
 - **Cost Analysis**: Demonstrates significant ROI through energy savings.
 
-![Screenshot 2025-04-27 114111](https://github.com/user-attachments/assets/bb91431f-3032-41f1-8b36-2ad20f26ffd5)
-![Screenshot 2025-04-27 114155](https://github.com/user-attachments/assets/a6210d30-cb91-4771-bb5f-5260ae726557)
-![Screenshot 2025-04-27 114226](https://github.com/user-attachments/assets/667138af-d16e-41f1-8568-2b7d50613729)
-![Screenshot 2025-04-27 114249](https://github.com/user-attachments/assets/fc2608f1-72ed-43a1-a799-53ae1277587c)
-![Screenshot 2025-04-27 114314](https://github.com/user-attachments/assets/0057702e-3a44-4227-9098-fced292f1e8f)
-![Screenshot 2025-04-27 114417](https://github.com/user-attachments/assets/095949f9-e17c-4d02-b67a-95155de1848c)
-![Screenshot 2025-04-27 114035](https://github.com/user-attachments/assets/57f12723-75b4-4bcf-90d3-35a751a06e82)
 
 ---
 
