@@ -18,6 +18,22 @@ The **Smart Energy Meter** is an advanced IoT-based solution designed to monitor
 
 ---
 
+![Screenshot 2025-04-27 115924](https://github.com/user-attachments/assets/605cfd84-5d46-40bf-86ea-8b9f8eb53336)
+![Screenshot 2025-04-27 115943](https://github.com/user-attachments/assets/0ced7901-8991-4633-a3ae-25a117ce72f9)
+![Screenshot 2025-04-27 120003](https://github.com/user-attachments/assets/36a85edf-966a-44c7-8e1c-78a3bb95df89)
+![Screenshot 2025-04-27 120028](https://github.com/user-attachments/assets/6c0d3c4f-47ad-43d2-8025-9a792fc50449)
+![Screenshot 2025-04-27 120046](https://github.com/user-attachments/assets/326e1d82-6b14-4e12-9ff5-ddb3340cbd52)
+![Screenshot 2025-04-27 120106](https://github.com/user-attachments/assets/570a0b8e-6b08-4568-b9dd-5fd36fd578d1)
+![Screenshot 2025-04-27 120121](https://github.com/user-attachments/assets/dc7fde75-9ec0-48ae-ae4f-7f150321e4be)
+![Screenshot 2025-04-27 120136](https://github.com/user-attachments/assets/a2061c7f-1210-4248-baf1-f359c03cdd30)
+![Screenshot 2025-04-27 120153](https://github.com/user-attachments/assets/6f3bd9ad-b687-4f40-8e31-59c039fbabbf)
+![Screenshot 2025-04-27 120230](https://github.com/user-attachments/assets/3135e0e8-6fc0-4f80-a04e-52e3209ef59b)
+![Screenshot 2025-04-27 120313](https://github.com/user-attachments/assets/bb9ee022-a202-4d2f-8b0f-39010b7e1179)
+![Screenshot 2025-04-27 120451](https://github.com/user-attachments/assets/1c99a3c5-cf26-48f2-abd1-874822de4928)
+![Screenshot 2025-04-27 120553](https://github.com/user-attachments/assets/8ed2841b-041d-4c80-b18d-09a82d217a0e)
+![Screenshot 2025-04-27 120646](https://github.com/user-attachments/assets/a90454f4-0488-48b5-97e4-1afe1cb56f0c)
+![Screenshot 2025-04-27 115902](https://github.com/user-attachments/assets/56522d6f-df2c-41d3-8d12-74c00078b07c)
+
 
 ## Project Overview
 
