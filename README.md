@@ -6,6 +6,7 @@ The **Smart Energy Meter** is an advanced IoT-based solution designed to monitor
 
 ---
 
+
 ## Project Overview
 
 Traditional energy meters lack real-time visibility, remote control, and detailed consumption tracking, leading to inefficiencies such as forgotten appliances, phantom energy drain, and increased carbon footprints. The Smart Energy Meter solves these problems by offering:
